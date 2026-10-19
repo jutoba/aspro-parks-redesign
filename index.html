@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspro Parks — Inicio (concepto)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.mood { cursor: pointer; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 10px 22px 10px 12px; border-radius: 999px; border: 2px solid; font: 700 17px var(--sans); transition: transform .15s ease; }
+.mood:hover { transform: translateY(-3px); }
+.mood-dot { width: 32px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.stat { flex: 1 1 220px; padding: 28px; border-radius: 24px; background: #fff; }
+.stat-n { margin: 0; font-family: var(--display); font-weight: 800; font-size: 56px; letter-spacing: -.03em; }
+.stat-l { margin: 4px 0 0; color: var(--muted); }
+.tile { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 32px; border-radius: 28px; text-decoration: none; min-height: 300px; }
+.tile-title { margin: 14px 0 0; font-family: var(--display); font-weight: 800; font-size: 34px; line-height: 1.05; }
+.plan { display: block; padding: 32px; border-radius: 28px; color: #fff; text-decoration: none; min-height: 240px; }
+.plan:hover { color: #fff; }
+.plan-title { margin: 14px 0 0; font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1.1; }
+.tile-kicker { margin: 0; font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+</style>
+</head>
+<body data-page="home" data-accent="#1478B8">
+<div id="site-header"></div>
+
+<main>
+  <section style="padding: 24px 24px 0">
+    <div class="wrap">
+      <p class="kicker">¿Qué te apetece hoy?</p>
+      <h1 id="hero-title" style="margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(48px, 8vw, 112px); line-height: .92; letter-spacing: -.04em; max-width: 960px">Elige cómo quieres refrescarte.</h1>
+      <div id="moods" style="display: flex; flex-wrap: wrap; gap: 12px; margin: 32px 0 0"></div>
+    </div>
+  </section>
+
+  <section aria-label="Destacado" style="padding: 40px 24px 0">
+    <div id="hero-panel" class="wrap" style="border-radius: 32px; overflow: hidden; background: #1478B8; color: #fff; display: flex; flex-wrap: wrap; transition: background .3s ease">
+      <div style="flex: 1 1 420px; padding: 48px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px">
+        <div>
+          <p id="hero-kicker" style="margin: 0 0 16px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 13px"></p>
+          <p id="hero-claim" style="margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.08; letter-spacing: -.02em"></p>
+          <p id="hero-body" style="margin: 20px 0 0; font-size: 18px; line-height: 1.55; max-width: 460px"></p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+          <a id="hero-cta" href="parques.html" class="btn btn-light"></a>
+          <a href="vivelo.html" style="padding: 16px 8px; color: #fff; font-weight: 700">Súbete en primera persona →</a>
+        </div>
+      </div>
+      <div id="hero-media-wrap" style="flex: 1 1 420px; min-height: 420px; position: relative; background: #0F5E93; display: flex; align-items: center; justify-content: center; padding: 32px; transition: background .3s ease">
+        <div id="hero-media" style="width: 100%; height: 100%; min-height: 356px; border: 2px dashed rgba(255,255,255,.55); border-radius: 24px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; font-weight: 500; font-size: 15px; line-height: 1.5"></div>
+        <svg aria-hidden="true" viewBox="0 0 600 60" preserveAspectRatio="none" style="position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 48px"><path d="M0 30 C 100 0, 200 60, 300 30 S 500 0, 600 30 L600 60 L0 60 Z" fill="#FFF6E9"></path></svg>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="El grupo en cifras" style="padding: 56px 24px 0">
+    <div class="wrap" style="display: flex; flex-wrap: wrap; gap: 16px">
+      <div class="stat"><p class="stat-n">43</p><p class="stat-l">parques para visitar</p></div>
+      <div class="stat"><p class="stat-n">10</p><p class="stat-l">países de Europa</p></div>
+      <div class="stat"><p class="stat-n">1991</p><p class="stat-l">haciendo días en familia desde Madrid</p></div>
+      <div class="stat" style="background: var(--ink); color: var(--cream)"><p class="stat-n">[X M]</p><p class="stat-l" style="color: var(--cream)">visitantes al año</p></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-label="Explora">
+    <div class="wrap">
+      <h2 class="h2" style="margin-bottom: 32px">Empieza por aquí</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+        <a href="parques.html" class="tile ap-card" style="background: #fff">
+          <div>
+            <p class="tile-kicker" style="color: var(--muted)">Parques</p>
+            <p class="tile-title">Encuentra el tuyo entre 43</p>
+            <p style="margin: 12px 0 0; line-height: 1.5; color: var(--body)">Filtra por tipo de parque y por país, y abre la ficha de cada uno.</p>
+          </div>
+          <span style="font-weight: 700">Buscar parque →</span>
+        </a>
+        <a href="vivelo.html" class="tile ap-card" style="background: var(--sea); color: #fff">
+          <div>
+            <p class="tile-kicker">Vívelo</p>
+            <p class="tile-title">Súbete antes de llegar</p>
+            <p style="margin: 12px 0 0; line-height: 1.5">Tobogán, montaña rusa y túnel del acuario en primera persona.</p>
+          </div>
+          <span style="font-weight: 700">Probar ahora →</span>
+        </a>
+        <a href="club.html" class="tile ap-card" style="background: var(--ink); color: var(--cream)">
+          <div>
+            <p class="tile-kicker" style="color: var(--sun)">Club · Nuevo</p>
+            <p class="tile-title">Cada visita suma</p>
+            <p style="margin: 12px 0 0; line-height: 1.5">Colecciona sellos, sube de nivel y desbloquea experiencias.</p>
+          </div>
+          <span style="font-weight: 700">Ver el pasaporte →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-label="Planes">
+    <div class="wrap">
+      <h2 class="h2" style="margin-bottom: 32px">Planes que salen solos</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+        <a href="parques.html" class="plan ap-card" style="background: var(--jungle)">
+          <p class="tile-kicker">Con peques</p>
+          <p class="plan-title">Mañana de delfines, tarde de toboganes</p>
+          <p style="margin: 14px 0 0; line-height: 1.5">Parques que juntan animales y agua en la misma visita.</p>
+        </a>
+        <a href="parques.html" class="plan ap-card" style="background: var(--clay)">
+          <p class="tile-kicker">De vacaciones</p>
+          <p class="plan-title">Tu isla, tu parque</p>
+          <p style="margin: 14px 0 0; line-height: 1.5">Mallorca, Tenerife, Gran Canaria, Algarve… un día distinto sin salir de tu destino.</p>
+        </a>
+        <a href="parques.html" class="plan ap-card" style="background: var(--deep)">
+          <p class="tile-kicker">Llueva o haga sol</p>
+          <p class="plan-title">Acuarios y parques cubiertos</p>
+          <p style="margin: 14px 0 0; line-height: 1.5">El plan bajo techo para cuando el tiempo no acompaña.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 96px 24px">
+    <div class="wrap" style="border-radius: 32px; background: var(--clay); color: #fff; padding: 56px 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+      <p style="margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(32px, 4vw, 52px); line-height: 1.02; letter-spacing: -.03em; max-width: 640px">El próximo buen recuerdo empieza aquí.</p>
+      <a href="parques.html" class="btn btn-light" style="font-size: 17px">Elige tu parque</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspro Parks — Club (concepto)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.step-n { margin: 0; font-family: var(--display); font-weight: 800; font-size: 28px; }
+.step-t { margin: 8px 0 0; font-weight: 700; font-size: 19px; }
+.step-d { margin: 6px 0 0; color: var(--muted); line-height: 1.5; }
+.passport { flex: 1 1 440px; border-radius: 24px; background: var(--cream); color: var(--ink); padding: 28px; }
+.bar { margin: 22px 0 0; height: 14px; border-radius: 999px; background: #EADFCB; overflow: hidden; }
+.bar-fill { height: 100%; width: 0; background: var(--clay); border-radius: 999px; transition: width .5s ease; }
+.stamps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.stamp { aspect-ratio: 1 / 1; border-radius: 999px; border: 2px dashed; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6px; }
+.stamp b { font-size: 14px; }
+.stamp span { font-size: 12px; }
+.visit { cursor: pointer; min-height: 44px; padding: 10px 16px; border-radius: 999px; border: 2px solid; background: #fff; color: var(--ink); font: 700 15px var(--sans); }
+.reward { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 18px; transition: background .3s ease; }
+.reward-icon { flex: none; width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; }
+.flash { animation: flash .6s ease; }
+@keyframes flash { 0% { transform: scale(1); } 40% { transform: scale(1.03); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .flash { animation: none; } .bar-fill { transition: none; } }
+</style>
+</head>
+<body data-page="club" data-accent="#F2B134">
+<div id="site-header"></div>
+
+<main>
+  <section class="sec-first">
+    <div class="wrap row-wrap between">
+      <div style="max-width: 760px">
+        <p class="kicker">Club Aspro · Pasaporte de temporada</p>
+        <h1 class="display">Cada visita suma. Cada sello desbloquea algo nuevo.</h1>
+      </div>
+      <a href="#" class="btn btn-sun">Únete gratis</a>
+    </div>
+  </section>
+
+  <section aria-label="Cómo funciona" style="padding: 48px 24px 0">
+    <div class="wrap grid-auto">
+      <div class="card" style="padding: 24px"><p class="step-n" style="color: var(--sea)">01</p><p class="step-t">Escanea tu entrada</p><p class="step-d">En la app o en taquilla, en cualquier parque del grupo.</p></div>
+      <div class="card" style="padding: 24px"><p class="step-n" style="color: var(--jungle)">02</p><p class="step-t">Suma puntos y sellos</p><p class="step-d">Más puntos cuando pruebas un tipo de parque nuevo.</p></div>
+      <div class="card" style="padding: 24px"><p class="step-n" style="color: var(--clay)">03</p><p class="step-t">Desbloquea experiencias</p><p class="step-d">Sube de nivel durante la temporada y canjea recompensas.</p></div>
+    </div>
+  </section>
+
+  <section aria-label="Tu pasaporte" style="padding: 48px 24px 96px">
+    <div class="wrap" style="border-radius: 32px; background: var(--ink); color: var(--cream); padding: 48px">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px">
+        <div class="passport">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
+            <div>
+              <p style="margin: 0; font-size: 13px; color: var(--muted); font-weight: 700; letter-spacing: .08em; text-transform: uppercase">Tu pasaporte · demo</p>
+              <p style="margin: 6px 0 0; font-family: var(--display); font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: -.03em"><span id="points">0</span> <span style="font-size: 20px; font-weight: 700">pts</span></p>
+            </div>
+            <span id="tier" style="padding: 8px 14px; border-radius: 999px; color: #fff; font-weight: 700; font-size: 14px"></span>
+          </div>
+          <div id="bar" class="bar" role="progressbar" aria-label="Progreso de la temporada" aria-valuemin="0" aria-valuemax="1500" aria-valuenow="0"><div id="bar-fill" class="bar-fill"></div></div>
+          <p id="next" style="margin: 10px 0 0; font-size: 15px; color: var(--body)"></p>
+          <p style="margin: 26px 0 10px; font-weight: 700">Sellos de la temporada</p>
+          <div id="stamps" class="stamps"></div>
+          <p style="margin: 26px 0 10px; font-weight: 700">Simula una visita</p>
+          <div id="visits" style="display: flex; flex-wrap: wrap; gap: 8px"></div>
+          <p id="msg" role="status" hidden style="margin: 14px 0 0; padding: 12px 16px; border-radius: 14px; background: var(--ink); color: var(--cream); font-weight: 700"></p>
+        </div>
+
+        <div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0 0 4px; font-weight: 700; font-size: 18px">Recompensas</p>
+          <div id="rewards" style="display: flex; flex-direction: column; gap: 10px"></div>
+          <div style="margin: 8px 0 0; padding: 18px 20px; border-radius: 18px; border: 2px dashed var(--sun)">
+            <p style="margin: 0; font-weight: 700; color: var(--sun); font-size: 13px; letter-spacing: .08em; text-transform: uppercase">Reto de temporada</p>
+            <p style="margin: 6px 0 0; font-weight: 700; font-size: 18px">Visita un acuario antes del [fecha] y tus puntos valen el doble</p>
+            <p style="margin: 4px 0 0; font-size: 14px">Un reto nuevo cada mes para que siempre haya un motivo para volver.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin: 36px 0 0; padding: 24px 0 0; border-top: 1px solid rgba(255,246,233,.25)">
+        <p style="margin: 0; font-size: 15px">Gratis · Válido en todos los parques del grupo · También sumas con comida y tienda [por definir]</p>
+        <a href="#" class="btn btn-sun" style="padding: 14px 24px">Únete al Club</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+<script src="assets/club.js"></script>
+</body>
+</html>

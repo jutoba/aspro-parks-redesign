@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspro Parks — Eventos corporativos (concepto)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.format { padding: 20px; border-radius: 18px; background: #fff; }
+.format-t { margin: 0; font-weight: 700; font-size: 17px; }
+.format-d { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body data-page="eventos" data-accent="#C2410C">
+<div id="site-header"></div>
+
+<main class="sec-first sec-last">
+  <div class="wrap" style="display: flex; flex-wrap: wrap; gap: 40px">
+    <div style="flex: 1 1 460px">
+      <p class="kicker">Eventos corporativos</p>
+      <h1 class="display">Tu empresa, un parque entero</h1>
+      <p class="lead">Un escenario que nadie olvida para reunir a tu equipo, a tus clientes o a toda la plantilla con sus familias.</p>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 32px 0 0">
+        <div class="format"><p class="format-t">Team building</p><p class="format-d">Retos entre toboganes, selva o acuario</p></div>
+        <div class="format"><p class="format-t">Cenas y celebraciones</p><p class="format-d">Con el parque solo para vosotros</p></div>
+        <div class="format"><p class="format-t">Convenciones</p><p class="format-d">Espacios para presentaciones y lanzamientos</p></div>
+        <div class="format"><p class="format-t">Día de la familia</p><p class="format-d">Entradas para empleados y sus familias</p></div>
+      </div>
+      <div class="placeholder" style="margin: 24px 0 0; height: 220px">[FOTO: equipo celebrando un evento en el parque al atardecer]</div>
+    </div>
+
+    <div style="flex: 1 1 400px; align-self: flex-start; border-radius: 28px; background: #fff; padding: 32px">
+      <form id="event-form" style="display: flex; flex-direction: column; gap: 14px">
+        <h2 style="margin: 0; font-weight: 800; font-size: 24px">Pide tu propuesta</h2>
+        <label class="field">Empresa<input type="text" name="empresa" required></label>
+        <label class="field">Email de contacto<input type="email" name="email" required></label>
+        <div style="display: flex; gap: 12px">
+          <label class="field" style="flex: 1">Nº de personas<input type="number" name="personas" min="1"></label>
+          <label class="field" style="flex: 1">Tipo de parque<select name="tipo"><option>Acuático</option><option>Animales</option><option>Acuario</option><option>Atracciones</option></select></label>
+        </div>
+        <label class="field">Cuéntanos tu idea<textarea name="idea" rows="3"></textarea></label>
+        <button type="submit" class="btn btn-dark" style="margin-top: 6px; min-height: 52px">Solicitar propuesta</button>
+      </form>
+      <div id="thanks" role="status" hidden style="min-height: 380px; display: flex; flex-direction: column; justify-content: center; gap: 12px">
+        <p style="margin: 0; font-family: var(--display); font-weight: 800; font-size: 32px">¡Gracias!</p>
+        <p style="margin: 0; color: var(--body); line-height: 1.55">En la web real, la solicitud llegaría al equipo comercial del parque elegido. En esta demo no se envía ni se guarda nada.</p>
+        <button type="button" id="back" class="btn" style="align-self: flex-start; padding: 10px 20px; border: 2px solid var(--ink); background: transparent; color: var(--ink)">Volver al formulario</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('event-form'), thanks = document.getElementById('thanks');
+    form.addEventListener('submit', function (e) { e.preventDefault(); form.reset(); form.hidden = true; thanks.hidden = false; });
+    document.getElementById('back').addEventListener('click', function () { thanks.hidden = true; form.hidden = false; });
+  })();
+</script>
+</body>
+</html>
